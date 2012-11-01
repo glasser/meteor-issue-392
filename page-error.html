@@ -1,0 +1,34 @@
+<template name="page-error">
+	<p>
+		{{> module-user-profile}}
+	</p>
+	<p>
+		{{> module-user-profile-form}}
+	</p>
+</template>
+
+<template name="module-user-profile">
+	<p><a href="javascript:render('page-home');">Back to Home</a></p>
+	<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+	 the backbone router.navigate '/', true cause the problem<br />
+	 if i use a href="/" to switch page there's no error but<br />
+	 with a wrap like a href="javascript: page('/');" it produces
+	 a spark error<br />
+
+	 try switch page use internal backbone router.navigate with
+	 2nd arg = true
+	<p>++++++++++++++++++++++++++++++++++++++++++++++++++++++</p>
+	<p>username: {{user.username}}</p>
+	<p>profile.name: {{user.profile.name}}</p>
+</template>
+
+<template name="module-user-profile-form">
+	<form>
+		<p>
+			<input type="text" class="data-profile-name" placeholder="{{user.profile.name}}" value="{{user.profile.name}}">
+		<p>
+		<p>
+			<input type="button" class="action-update-user-profile" value='Update'>
+		</p>
+	</form>
+</template>
